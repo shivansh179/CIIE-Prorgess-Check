@@ -1,21 +1,13 @@
 import React from "react";
-import Name from "./Name";
-import State from "./State";
+import Navbar from "./Navbar";
+import User from "./User";
 
 const Detail = () => {
   return (
     <div className="detail">
       <div className="box">
-        <div className="left">
-          <Name />
-        </div>
-        <div className="right">
-          <State />
-        </div>
-      </div>
-      <div className="final-report">
-        <button className="report">Send Report</button>
-        <button className="report">Download CSV</button>
+        <Navbar />
+        <User />
       </div>
     </div>
   );

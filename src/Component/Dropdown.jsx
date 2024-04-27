@@ -1,10 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Dropdown = () => {
   const [selectedOption, setSelectedOption] = useState("");
 
-  // Function to handle option selection
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -15,23 +13,21 @@ const Dropdown = () => {
         id="dropdown"
         value={selectedOption}
         onChange={handleOptionChange}
-        className="dropdown"
+        className="custom-dropdown"
       >
-        <option value="stuck" className="Stuck">
-          Stuck
-        </option>
-        <option value="Done" className="Done">
+        <option value="option1" className="option1">
           Done
         </option>
-        <option value="Working" className="Working">
+        <option value="option2" className="option2">
+          Stuck
+        </option>
+        <option value="option3" className="option3">
           Working
         </option>
-        <option value="Not Started" className="Not Started">
-          Not Started
+        <option value="option3" className="option3">
+          Not Active
         </option>
       </select>
-      {console.log(selectedOption)}
-      <button>Submit</button>
     </div>
   );
 };
