@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
-const Dropdown = () => {
+const Dropdown = ({ onNameChange }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+    if (onNameChange) {
+      // Check if the prop is passed
+      onNameChange(event.target.value); // Call the passed-down function with the selected option
+    }
   };
 
   return (
@@ -15,16 +19,16 @@ const Dropdown = () => {
         onChange={handleOptionChange}
         className="custom-dropdown"
       >
-        <option value="option1" className="option1">
+        <option value="Done" className="option1">
           Done
         </option>
-        <option value="option2" className="option2">
+        <option value="Stuck" className="option2">
           Stuck
         </option>
-        <option value="option3" className="option3">
+        <option value="Working" className="option3">
           Working
         </option>
-        <option value="option3" className="option3">
+        <option value="Not Active" className="option3">
           Not Active
         </option>
       </select>

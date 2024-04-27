@@ -31,6 +31,21 @@
     justify-content: center;
     align-items: center;
     margin: 40px;
+    flex-direction: column;
+     
+
+    .buttons{
+        margin: 10px;
+         button{
+            padding: 10px;
+           margin: 10px;
+           border-radius: 10px;
+           border: none;
+           background-color: aquamarine;
+           font-weight: 900;
+           cursor: pointer;
+         }
+    }
 
     .box{
             border: 2px solid black;

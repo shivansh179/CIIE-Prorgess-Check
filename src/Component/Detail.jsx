@@ -9,6 +9,12 @@ const Detail = () => {
         <Navbar />
         <User />
       </div>
+      <div className="buttons">
+        <button className="Send Report">Send Report</button>
+        <button className="Download CSV">Download CSV</button>
+      </div>
+
+      <button></button>
     </div>
   );
 };
