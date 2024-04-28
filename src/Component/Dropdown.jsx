@@ -6,8 +6,7 @@ const Dropdown = ({ onNameChange }) => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     if (onNameChange) {
-      // Check if the prop is passed
-      onNameChange(event.target.value); // Call the passed-down function with the selected option
+      onNameChange(event.target.value);
     }
   };
 

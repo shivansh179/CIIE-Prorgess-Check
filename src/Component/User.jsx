@@ -1,43 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 import students from "../students.json";
+import { Link } from "react-router-dom";
 
 const User = () => {
-  const [name, setName] = useState("");
-  const [updatedStudents, setUpdatedStudents] = useState(students); // Maintain a separate state for updated data
+  const [updatedStudents, setUpdatedStudents] = useState([]);
 
-  const updateName = (selectedOption) => {
-    setName(selectedOption);
-  };
+  useEffect(() => {
+    const storedData = localStorage.getItem("updatedStudents");
+    if (storedData) {
+      setUpdatedStudents(JSON.parse(storedData));
+    } else {
+      setUpdatedStudents(students);
+    }
+  }, []);
 
-  const handleSubmit = (index) => {
-    const updatedStudentsCopy = [...updatedStudents]; // Create a copy of the updatedStudents array
-
-    updatedStudentsCopy.forEach((student, studentIndex) => {
-      // Check if the current student's index matches the one passed as an argument
-      if (studentIndex === index) {
-        student.State = name; // Update the state of the specific student
-      }
-    });
-
-    setUpdatedStudents(updatedStudentsCopy); // Update the state with the modified student
-    console.log(updatedStudentsCopy);
+  const updateName = (selectedOption, index) => {
+    const updatedStudentsCopy = [...updatedStudents];
+    updatedStudentsCopy[index].state = selectedOption;
+    setUpdatedStudents(updatedStudentsCopy);
+    localStorage.setItem(
+      "updatedStudents",
+      JSON.stringify(updatedStudentsCopy)
+    );
   };
 
   return (
     <div className="user">
-      {updatedStudents.map((records, index) => (
-        <div className="users" key={records.id}>
+      {updatedStudents.map((student, index) => (
+        <div className="users" key={student.id}>
           <div className="about">
-            <span>Name:{records.name}</span>
-            <span>Year:{records.Year}</span>
-            <span>Domain:{records.domain}</span>
+            <span>Name: {student.name}</span>
+            <span>Year: {student.Year}</span>
+            <span>Domain: {student.domain}</span>
+            <div>
+              <Link to="./AdvanceDescription.jsx">Detail</Link>
+            </div>
             <br />
           </div>
           <div className="drop">
-            <Dropdown onNameChange={updateName} />
-            <button onClick={() => handleSubmit(index)}>Submit</button>{" "}
-            {/* Pass the index as an argument */}
+            <Dropdown
+              onNameChange={(selectedOption) =>
+                updateName(selectedOption, index)
+              }
+            />
           </div>
         </div>
       ))}
