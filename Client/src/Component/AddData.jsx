@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import user from "./User";
 
 const AddData = () => {
   const [name, setName] = useState("");
@@ -11,7 +12,7 @@ const AddData = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:4000/", {
+      const result = await axios.post("https://ciie-backend.onrender.com/", {
         name,
         Registration_number,
         year,
@@ -77,7 +78,9 @@ const AddData = () => {
             />
           </div>
 
-          <button type="submit">Add Student</button>
+          <button type="submit" className="Add">
+            Add Student
+          </button>
         </form>
       </div>
     </div>

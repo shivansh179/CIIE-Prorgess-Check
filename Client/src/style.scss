@@ -6,7 +6,12 @@
 body{
 
     background-color: rgb(83, 156, 132);
-   
+    
+    background-image: url('./Images/back (2).jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    color: white;
      
 }
 
@@ -17,16 +22,19 @@ body{
     align-items: center;
     margin-top: 40px;
     gap: 25px;
+    
      
-
+    
     .progress{
         display: flex;
         flex-direction: column;
         align-items: center;
+
         span{
             font-family: monospace;
             font-size: 30px;
             font-weight: 800;
+            color: white;
         }
     }
 
@@ -37,35 +45,62 @@ body{
         gap: 15px;
         .personal{
             width: 300px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 12px;
+            .div{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+            span{
+                color: white;
+                font-family: monospace;
+                font-weight: 900;
+                font-size: 18px;
+            }
+        }
         }
         .buttons{
             display: flex;
             flex-direction: row;
             gap: 20px;
             align-items: center;
+            .buttons1{
+                text-decoration: none;
+                color: black;
+                font-family: monospace;
+                padding: 10px;
+                background-color:rgb(50, 114, 114);
+                border-radius: 10px;
+                font-weight: 500;
+            }
         }
         button{
-                padding: 10px;
-                border-radius: 10px;
-                border: none;
-                font-size: 17px;
-                outline: none;
-                background-color:  rgb(10, 122, 122);
-                cursor: pointer;
+             padding: 10px;
+             background-color:rgb(50, 114, 114);
+             border-radius: 10px;
+             border:none;
+             cursor: pointer;
+             
         }
         .box{
             display: flex;
-            border: 2px solid black;
+            border: 2px solid rgb(12, 82, 70);
             flex-direction: column;
             width: 650px;
             height: 350px;
             border-radius: 10px;
             overflow: scroll;
+
+             
+
+           
             .Navbar{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                background-color: rgb(10, 122, 122);
+                background-color: rgb(50, 114, 114);
                 padding: 10px;
                 font-size: 22px;
                 font-family: monospace;
@@ -101,6 +136,19 @@ body{
         flex-direction: column;
         align-items: center;
         gap: 5px;
+
+        .user-status{
+            color: green;
+        }
+
+        .submit{
+            outline: none;
+            padding: 10px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            border: none;
+        }
         
         span{
             font-size: 20px;
@@ -139,13 +187,21 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            .Add{
+                text-decoration: none;
+                color: blue;
+
+            }
             .det{
                 display: flex;
                 flex-direction: column;
                 align-content: center;
                 justify-content: center;
 
+
                 input{
+                    color: white;
                     padding: 10px;
                     border-radius: 10px;
                     border: 2px solid black;
@@ -174,6 +230,7 @@ body{
             }
         }
    } }
+  
 }
 
 

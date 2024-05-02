@@ -1,23 +1,9 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ onNameChange }) => {
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-    if (onNameChange) {
-      onNameChange(event.target.value);
-    }
-  };
-
+const Dropdown = ({ id }) => {
   return (
     <div>
-      <select
-        id="dropdown"
-        value={selectedOption}
-        onChange={handleOptionChange}
-        className="custom-dropdown"
-      >
+      <select id={id} className="custom-dropdown">
         <option value="Done" className="option1">
           Done
         </option>
